@@ -4,11 +4,11 @@ using System.Text;
 
 namespace PizzaStoreApp
 {
-    class User
+    public class User
     {
-        public string firstName;
-        public string lastName;
-        public string location;
+        public string firstName { get; set; }                   //customer's first name 
+        public string lastName { get; set; }                    //customer's last name
+        public string location { get; set; }                    //default location to order from
 
         //2-hour time limit
 

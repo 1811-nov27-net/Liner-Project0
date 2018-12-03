@@ -2,11 +2,12 @@
 
 namespace PizzaStoreApp
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Pizza testpizza = new Pizza(true, false, false, "small");
+            Console.WriteLine(testpizza.price);
         }
     }
 }
