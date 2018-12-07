@@ -11,32 +11,52 @@ namespace PizzaStoreApp
         bool pineapples;                    //pinapple topping Y/N
         bool mushrooms;                     //mushroom topping Y/N
         public double price { get; set; }                       //total price of this pizza
-        string size;                        //pizza size
 
-        //prices for each pizza size
-        Dictionary<string, double> sizeKey = new Dictionary<string, double>()
+                           
+
+        //pizza constructor; sets the size of the pizza being ordered
+        public string size (string size)
         {
-            {"small", 5.00 },
-            {"medium", 10.00},
-            {"large", 15.00 }
-        };                               
+            if (size == "small")            //small size pizza
+            {
+                this.price = 5.00;
+                return "small";                
+            }
 
-        //pizza constructor; defines the type of pizza being ordered
-        public Pizza(bool pepperoni, bool pineapples, bool mushrooms, string size)
+            else if (size == "medium")      //medium size pizza
+            {
+                this.price = 10.00;
+                return "medium";
+            }
+
+            else if (size == "large")       //large size pizza
+            {
+                this.price = 15.00;
+                return "large";
+            }
+
+            else                            //default to small size
+
+            {                          
+                this.price = 5.00;
+                return "small";
+            }
+            
+        }
+
+        public void AddPepperoni(bool pepperoni)        //add pepperoni
         {
             this.pepperoni = pepperoni;
+        }
+
+        public void AddPineapples(bool pineapples)      //add pineapples
+        {
             this.pineapples = pineapples;
+        }
+
+        public void AddMushrooms(bool mushrooms)        //add mushrooms
+        {
             this.mushrooms = mushrooms;
-
-            this.price = sizeKey[size];
-
-            if (pepperoni)
-                price += 0.50;
-            if (pineapples)
-                price += 0.50;
-            if (mushrooms)
-                price += 0.50;
-            
         }
     }
 }

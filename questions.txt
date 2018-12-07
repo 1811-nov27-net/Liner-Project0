@@ -1,0 +1,6 @@
+- should the Store class have a separate method to reject orders, or do it in the same method as
+	placing the order?
+- similarly, should the User class have a separate method to reject orders from users who are
+	within the 2-hour time limit? 
+- concerns of using "if" loop for pizza size
+- would UserID, StoreID be useful?

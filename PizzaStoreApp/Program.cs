@@ -7,7 +7,15 @@ namespace PizzaStoreApp
         static void Main(string[] args)
         {
             Pizza testpizza = new Pizza(true, false, false, "small");
-            Console.WriteLine(testpizza.price);
+
+            Pizza test2 = new Pizza(false, false, false, "large");
+
+            Order testorder = new Order();
+
+            testorder.AddToOrder(testpizza);
+            testorder.AddToOrder(test2);
+
+            Console.WriteLine(testorder.price);
         }
     }
 }
