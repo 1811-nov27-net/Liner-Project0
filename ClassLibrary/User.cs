@@ -8,7 +8,7 @@ namespace PizzaStoreApp
     {
         public string firstName { get; set; }                   //customer's first name 
         public string lastName { get; set; }                    //customer's last name
-        public int CustomerID { get; set; }                     //customer ID number
+        public int userID { get; set; }                     //customer ID number
         public string defaultLocation { get; set; }                    //default location to order from
         public List<Order> OrderHistory = new List<Order>();    //user's order history 
 
@@ -26,10 +26,7 @@ namespace PizzaStoreApp
             OrderHistory.Add(order);
         }
 
-        
-
-        //2-hour time limit
-
+       
 
     }
 }

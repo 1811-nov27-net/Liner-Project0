@@ -10,12 +10,10 @@ namespace PizzaStoreApp
         bool pepperoni;                     //pepporoni topping Y/N
         bool pineapples;                    //pinapple topping Y/N
         bool mushrooms;                     //mushroom topping Y/N
-        public double price { get; set; }                       //total price of this pizza
+        public double price { get; set; }   //total price of this pizza
 
                            
-
-        //pizza constructor; sets the size of the pizza being ordered
-        public string size (string size)
+        public string size (string size)    //sets the size of the pizza
         {
             if (size == "small")            //small size pizza
             {

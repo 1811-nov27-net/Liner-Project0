@@ -17,9 +17,13 @@ namespace PizzaStoreApp
         //return a suggested order based on user's history
         public Order SuggestedOrder(User user)
         {
-            
+
+            int i = (user.OrderHistory.Count) - 1;
+            return user.OrderHistory[i];                //return the latest order the user has made
+
         }
 
+        //add order to history
         public void AddToHistory(Order order)
         {
             history.Add(order);
@@ -28,19 +32,19 @@ namespace PizzaStoreApp
         //subtract pepperoni from inventory
         public void usePepperoni()
         {
-            pepperoni -= 10;
+            this.pepperoni -= 10;
         }
 
         //subtract pineapples from inventory
         public void usePineapples()
         {
-            pineapples -= 10;
+            this.pineapples -= 10;
         }
 
         //subtract mushrooms from inventory
         public void useMushrooms()
         {
-            mushrooms -= 10;
+            this.mushrooms -= 10;
         }
 
     }

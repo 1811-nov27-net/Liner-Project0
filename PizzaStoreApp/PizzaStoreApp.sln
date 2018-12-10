@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaStoreApp", "PizzaStoreApp.csproj", "{BA88AE3C-3EDF-47DC-B798-0E9BEFA40F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{2AE55071-8F7C-4460-BB82-5BE460BB1E0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{2AE55071-8F7C-4460-BB82-5BE460BB1E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "..\ClassLibrary\ClassLibrary.csproj", "{93B4BAF5-3A3B-443F-8275-F514C5FE4684}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2AE55071-8F7C-4460-BB82-5BE460BB1E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AE55071-8F7C-4460-BB82-5BE460BB1E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AE55071-8F7C-4460-BB82-5BE460BB1E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93B4BAF5-3A3B-443F-8275-F514C5FE4684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93B4BAF5-3A3B-443F-8275-F514C5FE4684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93B4BAF5-3A3B-443F-8275-F514C5FE4684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B4BAF5-3A3B-443F-8275-F514C5FE4684}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
