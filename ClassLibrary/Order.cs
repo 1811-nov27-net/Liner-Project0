@@ -7,8 +7,9 @@ namespace PizzaStoreApp
     public class Order
     {
 
-        public string location { get; set; }                //location ID of pizza shop
-        public string user { get; set; }                    //name of customer/user
+        public int location { get; set; }                //location ID of pizza shop
+        public int user { get; set; }                    //user ID of person ordering
+        public int pizzas = 0;                              //number of pizzas in the order; initialized to 0
         DateTime orderTime { get; set; }                    //time of order               
 
 
@@ -23,6 +24,7 @@ namespace PizzaStoreApp
             {
                 this.price += pizza.price;
                 PizzaList.Add(pizza);
+                this.pizzas += 1;
             }
 
             else

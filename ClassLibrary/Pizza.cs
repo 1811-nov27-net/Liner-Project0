@@ -7,9 +7,6 @@ namespace PizzaStoreApp
     public class Pizza
     {
 
-        bool pepperoni;                     //pepporoni topping Y/N
-        bool pineapples;                    //pinapple topping Y/N
-        bool mushrooms;                     //mushroom topping Y/N
         public double price { get; set; }   //total price of this pizza
 
                            
@@ -42,22 +39,5 @@ namespace PizzaStoreApp
             
         }
 
-        public void AddPepperoni(bool pepperoni)        //add pepperoni, increment price
-        {
-            this.pepperoni = pepperoni;
-            this.price += 0.50;
-        }
-
-        public void AddPineapples(bool pineapples)      //add pineapples, increment price
-        {
-            this.pineapples = pineapples;
-            this.price += 0.50;
-        }
-
-        public void AddMushrooms(bool mushrooms)        //add mushrooms, increment price
-        {
-            this.mushrooms = mushrooms;
-            this.price += 0.50;
-        }
     }
 }

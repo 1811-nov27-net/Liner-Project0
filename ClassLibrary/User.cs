@@ -8,12 +8,17 @@ namespace PizzaStoreApp
     {
         public string firstName { get; set; }                   //customer's first name 
         public string lastName { get; set; }                    //customer's last name
-        public int userID { get; set; }                     //customer ID number
-        public string defaultLocation { get; set; }                    //default location to order from
+        public int userID { get; set; }                         //customer ID number
+        public int defaultLocation { get; set; }                //default location to order from
         public List<Order> OrderHistory = new List<Order>();    //user's order history 
 
+        public void AddToHistory(Order order)
+        {
+            OrderHistory.Add(order);
+        }
+
         //make an order and add it to the user's history
-        public void MakeOrder(Order order, string location)
+        /*public void MakeOrder(Order order, string location)
         {
             //check to see if an order has been made in the past 2 hours
             for(int i=OrderHistory.Count-1; i<0; i--)
@@ -24,7 +29,7 @@ namespace PizzaStoreApp
                 }
             }
             OrderHistory.Add(order);
-        }
+        }*/
 
        
 
