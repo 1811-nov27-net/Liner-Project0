@@ -44,19 +44,22 @@ namespace PizzaStoreApp
             
         }
 
-        public void AddPepperoni(bool pepperoni)        //add pepperoni
+        public void AddPepperoni(bool pepperoni)        //add pepperoni, increment price
         {
             this.pepperoni = pepperoni;
+            this.price += 0.50;
         }
 
-        public void AddPineapples(bool pineapples)      //add pineapples
+        public void AddPineapples(bool pineapples)      //add pineapples, increment price
         {
             this.pineapples = pineapples;
+            this.price += 0.50;
         }
 
-        public void AddMushrooms(bool mushrooms)        //add mushrooms
+        public void AddMushrooms(bool mushrooms)        //add mushrooms, increment price
         {
             this.mushrooms = mushrooms;
+            this.price += 0.50;
         }
     }
 }

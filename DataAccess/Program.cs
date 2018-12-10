@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace PizzaStoreApp
+namespace DataAccess
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Hello World!");
         }
     }
 }
