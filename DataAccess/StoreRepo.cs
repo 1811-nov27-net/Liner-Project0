@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess
 {
-    class StoreRepo : IStoreRepo
+    public class StoreRepo : IStoreRepo
     {
         public PizzaStoreAppContext Db { get; }
 
@@ -30,6 +30,26 @@ namespace DataAccess
             Db.OrderDetails.Add(trackedOrder);                                          //add the new tracked order
         }
 
+        //give details of the order
+        public string OrderOverview(OrderClass order)
+        {
+            string firstName = Db.Users.First(u => u.UserId == order.user).FirstName;
+            string lastName = Db.Users.First(u => u.UserId == order.user).LastName;
+
+
+            return "User Name: " + firstName + " " + lastName + ".\n" + "Pizzas: " + order.pizzas + ".\n" +
+                "Store ID: " + order.location + ".\n" + "Price: " + order.price + ".\n" + "Time Placed: " + order.orderTime + ".\n";
+        }
+
+        /*public UserClass SearchUserByName(string name)
+        {
+
+        }*/
+
+        public void SaveChanges()
+        {
+            Db.SaveChanges();
+        }
 
 
     }

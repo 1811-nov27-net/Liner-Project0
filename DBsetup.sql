@@ -37,3 +37,5 @@ insert into Store values (103, 20);
 insert into Users values (201, 'Matt','Liner', 101);
 insert into Users values (202, 'Ben', 'Johnson', 102);
 insert into Users values (203, 'Kyle', 'Smith', 103);
+
+select * from OrderDetails

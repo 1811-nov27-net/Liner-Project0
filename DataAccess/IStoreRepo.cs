@@ -5,14 +5,14 @@ using System.Text;
 
 namespace DataAccess
 {
-    interface IStoreRepo
+    public interface IStoreRepo
     {
         void MakeOrder(OrderClass order);               //Making an order
-        void GetSuggestion(UserClass user);             //Get a suggestion based on order history
-        UserClass SearchUserByName(string name);        //Search for a user by their name
-        //display order details                         //Display details for an order
+        //UserClass SearchUserByName(string name);        //Search for a user by their name
         //display order history of a store location     //Display order history for store location
         //display order history for a user              //Display order history for a user
+        void SaveChanges();                             //save changes to the repo
+        string OrderOverview(OrderClass order);                         //gives details of the order
 
     }
 }

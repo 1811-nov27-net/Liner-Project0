@@ -1,23 +1,67 @@
 ﻿using ClassLibrary;
+using DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace PizzaStoreApp
 {
     public class Program
     {
+        static DbContextOptions<PizzaStoreAppContext> options = null;
+
+
         static void Main(string[] args)
         {
-            OrderClass o1 = new OrderClass();
-            StoreClass store = new StoreClass();
-            store.locationID = 101;
+            var connectionString = SecretConfiguration.ConnectionString;
+            var optionsBuilder = new DbContextOptionsBuilder<PizzaStoreAppContext>();
+            optionsBuilder.UseSqlServer(connectionString);
+            options = optionsBuilder.Options;
+            IStoreRepo repo;
 
-            PizzaClass p1 = new PizzaClass();
-            p1.size = "small";
-            o1.AddToOrder(p1);
+            using (var db = new PizzaStoreAppContext(options))
+            {
+                repo = new StoreRepo(db);
 
+                var store = new StoreClass();
+                store.locationID = 102;
 
-            o1.location = 01;
-            o1.user = 201;
+                var kyles = new UserClass();
+                kyles.userID = 203;
+                kyles.defaultLocation = 103;
+
+                var order = new OrderClass();
+
+                var pizza1 = new PizzaClass("large");
+                order.AddToOrder(pizza1);
+
+                var pizza2 = new PizzaClass("large");
+                order.AddToOrder(pizza2);
+
+                if (kyles.CanOrder(store))
+                {
+                    if (store.EnoughStock(order))
+                    {
+                        order.CompleteOrder(kyles, store);
+                        store.PlaceOrder(order);
+                        kyles.AddToHistory(order);
+
+                        repo.MakeOrder(order);
+                        repo.OrderOverview(order);
+                        repo.SaveChanges();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("There is not enough stock left to fill this order.");
+                    }
+                }
+
+                else
+                {
+                    Console.WriteLine("You have ordered too recently and must wait to order again");
+                }
+            }
+
         }
     }
 }

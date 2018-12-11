@@ -9,8 +9,10 @@ namespace ClassLibrary
 
         public int location { get; set; }                //location ID of pizza shop
         public int user { get; set; }                    //user ID of person ordering
-        public int pizzas = 0;                              //number of pizzas in the order; initialized to 0
-        public DateTime orderTime { get; set; }                    //time of order               
+        public string firstName { get; set; }            //first name of user
+        public string lastName { get; set; }             //last name of user
+        public int pizzas = 0;                           //number of pizzas in the order; initialized to 0
+        public DateTime orderTime { get; set; }          //time of order               
 
 
 
@@ -33,6 +35,18 @@ namespace ClassLibrary
             }
 
         }
+
+        //finalize order
+        public void CompleteOrder(UserClass user, StoreClass store)
+        {                        
+
+            this.user = user.userID;
+            this.location = store.locationID;
+            this.orderTime = DateTime.Now;
+        }
+
+        //this string describes the order to the user
+
 
     }
 }

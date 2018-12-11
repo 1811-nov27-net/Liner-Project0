@@ -7,7 +7,7 @@ namespace ClassLibrary
     public class StoreClass
     {
         public int locationID { get; set; }                    //store location ID
-        public int stock { get; set; }                         //inventory stock
+        public int stock = 20;                         //inventory stock
 
         //history of orders placed to the location
         List<OrderClass> history = new List<OrderClass>();
@@ -20,19 +20,24 @@ namespace ClassLibrary
         }
 
         //add order to history
-        public void PlaceOrder(OrderClass order)
-        {
-            if (this.stock >= order.pizzas)             //check if there's enough inventory to complete the order
-            {
-                reduceStock(order.pizzas);
-                history.Add(order);
-                order.orderTime = DateTime.Now;
-            }
 
-            else
+        public bool EnoughStock(OrderClass order)       //check if there's enough inventory to complete the order
+        {
+            if (order.pizzas > this.stock)
             {
                 Console.WriteLine("Not enough inventory to complete order");
+                return false;
             }
+
+            else { return true; }
+        }
+        
+        public void PlaceOrder(OrderClass order)
+        {           
+                reduceStock(order.pizzas);
+                history.Add(order);
+                order.orderTime = order.orderTime;
+            
         }
 
         //subtract from inventory
