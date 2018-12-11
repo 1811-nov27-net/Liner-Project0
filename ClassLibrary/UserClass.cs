@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaStoreApp
+namespace ClassLibrary
 {
-    public class User
+    public class UserClass
     {
         public string firstName { get; set; }                   //customer's first name 
         public string lastName { get; set; }                    //customer's last name
         public int userID { get; set; }                         //customer ID number
         public int defaultLocation { get; set; }                //default location to order from
-        public List<Order> OrderHistory = new List<Order>();    //user's order history 
+        public List<OrderClass> OrderHistory = new List<OrderClass>();    //user's order history 
 
-        public void AddToHistory(Order order)
+        public void AddToHistory(OrderClass order)
         {
             OrderHistory.Add(order);
         }

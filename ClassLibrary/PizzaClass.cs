@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaStoreApp
+namespace ClassLibrary
 {
-    public class Pizza
+    public class PizzaClass
     {
 
         public double price { get; set; }   //total price of this pizza

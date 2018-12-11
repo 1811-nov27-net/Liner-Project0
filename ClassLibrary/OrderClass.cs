@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaStoreApp
+namespace ClassLibrary
 {
-    public class Order
+    public class OrderClass
     {
 
         public int location { get; set; }                //location ID of pizza shop
@@ -15,10 +15,10 @@ namespace PizzaStoreApp
 
 
         public double price { get; set; }                   //total price of the order
-        List<Pizza> PizzaList = new List<Pizza>();          //list of pizzas in the order
+        List<PizzaClass> PizzaList = new List<PizzaClass>();          //list of pizzas in the order
 
         //add a pizza to the order
-        public void AddToOrder(Pizza pizza)
+        public void AddToOrder(PizzaClass pizza)
         {
             if (PizzaList.Count < 12 && this.price+pizza.price < 500.00)
             {
