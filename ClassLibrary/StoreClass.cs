@@ -27,7 +27,7 @@ namespace ClassLibrary
 
         //add order to history
 
-        public bool EnoughStock(OrderClass order)       //check if there's enough inventory to complete the order
+        /*public bool EnoughStock(OrderClass order)       //check if there's enough inventory to complete the order
         {
             if (order.pizzas > this.stock)
             {
@@ -36,16 +36,16 @@ namespace ClassLibrary
             }
 
             else { return true; }
-        }
+        }*/
         
         //place order
-        public void PlaceOrder(OrderClass order)
+        /*public void PlaceOrder(OrderClass order)
         {           
                 reduceStock(order.pizzas);
                 history.Add(order);
                 order.orderTime = order.orderTime;
             
-        }
+        }*/
 
         //subtract from inventory
 

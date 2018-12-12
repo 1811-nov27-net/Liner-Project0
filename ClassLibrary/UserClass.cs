@@ -10,7 +10,7 @@ namespace ClassLibrary
     {
         public int userID { get; set; }                         //customer ID number
         public int defaultLocation { get; set; }                //default location to order from
-        public List<OrderClass> OrderHistory = new List<OrderClass>();    //user's order history 
+        public IList<OrderClass> OrderHistory = new List<OrderClass>();    //user's order history 
 
         //constructor
         public UserClass(int userID, int defaultLocation)
@@ -25,17 +25,17 @@ namespace ClassLibrary
             OrderHistory.Add(order);
         }
 
-        public string SuggestedOrder()
+        /*public string SuggestedOrder()
         {
 
             OrderClass orderSuggestion = new OrderClass();
             orderSuggestion = this.OrderHistory[this.OrderHistory.Count - 1];
             return orderSuggestion.ToString();
-        }
+        }*/
 
         //check to see if an order has been made in the past 2 hours at the same location by the same user
 
-        public bool CanOrder(StoreClass location)
+        public bool CanOrder()
         {
             if (this.OrderHistory.Count == 0 || timeCheck(this.OrderHistory.OrderByDescending(o => o.orderTime).First().orderTime))
             {

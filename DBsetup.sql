@@ -1,13 +1,12 @@
 Create database PizzaStoreApp
 
---drop table Store
+
 create table Store
 (
 	LocationID int primary key not null,
 	Stock int not null
 );
 
---drop table OrderDetails
 create table OrderDetails
 (
 	OrderID int primary key identity not null,
@@ -15,12 +14,12 @@ create table OrderDetails
 	LocationID int not null,
 	UserID int not null,
 	Price decimal(8,2) not null,
-	DatePlaced datetime not null,
+	DatePlaced datetime2 not null,
 	foreign key (LocationID) references Store(LocationID),
 	foreign key (UserID) references Users(UserID)
 );
 
---drop table Users
+
 create table Users
 (
 	UserID int primary key not null,
@@ -29,6 +28,9 @@ create table Users
 	DefaultLocation int not null,
 	foreign key (DefaultLocation) references Store(LocationID)
 );
+
+--drop table OrderDetails; drop table Store; drop table Users
+
 
 insert into Store values (101, 20);
 insert into Store values (102, 20);

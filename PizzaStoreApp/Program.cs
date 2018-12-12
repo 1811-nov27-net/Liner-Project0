@@ -22,69 +22,17 @@ namespace PizzaStoreApp
             {
                 repo = new StoreRepo(db);
 
-                var store = new StoreClass(102);
-
-                var kyles = new UserClass(203, 103);
-
-                var order = new OrderClass();
-
-                var pizza1 = new PizzaClass("large");
-                order.AddToOrder(pizza1);
-
-                var pizza2 = new PizzaClass("large");
-                order.AddToOrder(pizza2);
-
-                if (kyles.CanOrder(store))
+                string input = null;
+                while (input != "exit")
                 {
-                    if (store.EnoughStock(order))
-                    {
-                        order.CompleteOrder(kyles, store);
-                        store.PlaceOrder(order);
-                        kyles.AddToHistory(order);
+                    Console.WriteLine("Welcome to the Pizza App. Enter your order here. Small Pizzas are $25, Large Pizzas are $50");
+                    //input = Console.ReadLine();
 
-                        repo.MakeOrder(order);
-                        Console.WriteLine(repo.OrderOverview(order));
-                        repo.SaveChanges();
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("There is not enough stock left to fill this order.");
-                    }
+                    repo.MakeOrder();
+                    repo.SaveChanges();
+                    
                 }
-
-                else
-                {
-                    Console.WriteLine("You have ordered too recently and must wait to order again");
-                }
-
-                if (kyles.CanOrder(store))
-                {
-                    if (store.EnoughStock(order))
-                    {
-                        order.CompleteOrder(kyles, store);
-                        store.PlaceOrder(order);
-                        kyles.AddToHistory(order);
-
-                        repo.MakeOrder(order);
-                        Console.WriteLine(repo.OrderOverview(order));
-                        repo.SaveChanges();
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("There is not enough stock left to fill this order.");
-                    }
-                }
-
-                else
-                {
-                    Console.WriteLine("You have ordered too recently and must wait to order again");
-                }
-
-
             }
-
         }
     }
 }
