@@ -22,12 +22,9 @@ namespace PizzaStoreApp
             {
                 repo = new StoreRepo(db);
 
-                var store = new StoreClass();
-                store.locationID = 102;
+                var store = new StoreClass(102);
 
-                var kyles = new UserClass();
-                kyles.userID = 203;
-                kyles.defaultLocation = 103;
+                var kyles = new UserClass(203, 103);
 
                 var order = new OrderClass();
 
@@ -46,7 +43,7 @@ namespace PizzaStoreApp
                         kyles.AddToHistory(order);
 
                         repo.MakeOrder(order);
-                        repo.OrderOverview(order);
+                        Console.WriteLine(repo.OrderOverview(order));
                         repo.SaveChanges();
                     }
 
@@ -60,6 +57,32 @@ namespace PizzaStoreApp
                 {
                     Console.WriteLine("You have ordered too recently and must wait to order again");
                 }
+
+                if (kyles.CanOrder(store))
+                {
+                    if (store.EnoughStock(order))
+                    {
+                        order.CompleteOrder(kyles, store);
+                        store.PlaceOrder(order);
+                        kyles.AddToHistory(order);
+
+                        repo.MakeOrder(order);
+                        Console.WriteLine(repo.OrderOverview(order));
+                        repo.SaveChanges();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("There is not enough stock left to fill this order.");
+                    }
+                }
+
+                else
+                {
+                    Console.WriteLine("You have ordered too recently and must wait to order again");
+                }
+
+
             }
 
         }

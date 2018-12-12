@@ -19,6 +19,7 @@ namespace DataAccess
 
         public void MakeOrder(OrderClass order)
         {
+
             OrderDetails trackedOrder = new OrderDetails();         //create a new order to be tracked in database
 
             trackedOrder.UserId = Db.Users.First(u => u.UserId == order.user).UserId;   //match customer ID with customer in database
@@ -28,6 +29,40 @@ namespace DataAccess
             trackedOrder.DatePlaced = order.orderTime;                                  //time of order being placed
 
             Db.OrderDetails.Add(trackedOrder);                                          //add the new tracked order
+        }
+
+        //converts user data from database tables into a C# object
+        public UserClass UserConversion(Users user)
+        {
+            return new UserClass(user.UserId, user.DefaultLocation);
+        }
+
+        //make a list of object UserClass using library class as a blueprint
+        public List<UserClass> UserList()
+        {
+            List<UserClass> list = new List<UserClass>();
+            foreach(var user in Db.Users.ToList())
+            {
+                list.Add(UserConversion(user));
+            }
+            return list;
+        }
+
+        //converts store location data from database tables into a C# object
+        public StoreClass StoreConversion(Store store)
+        {
+            return new StoreClass(store.LocationId);
+        }
+
+        //makes a list of object StoreClass using library class as a blueprint
+        public List<StoreClass> StoreList()
+        {
+            List<StoreClass> list = new List<StoreClass>();
+            foreach(var store in Db.Store.ToList())
+            {
+                list.Add(StoreConversion(store));
+            }
+            return list;
         }
 
         //give details of the order

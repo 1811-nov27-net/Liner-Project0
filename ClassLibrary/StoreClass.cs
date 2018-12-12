@@ -9,6 +9,12 @@ namespace ClassLibrary
         public int locationID { get; set; }                    //store location ID
         public int stock = 20;                         //inventory stock
 
+        //constructor
+        public StoreClass(int locationID)
+        {
+            this.locationID = locationID;
+        }
+
         //history of orders placed to the location
         List<OrderClass> history = new List<OrderClass>();
 

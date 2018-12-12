@@ -19,6 +19,13 @@ namespace ClassLibrary
         public decimal price { get; set; }                   //total price of the order
         List<PizzaClass> PizzaList = new List<PizzaClass>();          //list of pizzas in the order
 
+        //custom order
+        public void CustomOrder(int x)
+        {
+            this.pizzas = x;
+            this.price = 5.00m * x;
+        }
+
         //add a pizza to the order
         public void AddToOrder(PizzaClass pizza)
         {
