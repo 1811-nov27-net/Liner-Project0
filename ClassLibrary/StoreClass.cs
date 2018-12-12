@@ -7,7 +7,7 @@ namespace ClassLibrary
     public class StoreClass
     {
         public int locationID { get; set; }                    //store location ID
-        public int stock = 20;                         //inventory stock
+        public int stock = 20;                                 //inventory stock
 
         //constructor
         public StoreClass(int locationID)
@@ -38,6 +38,7 @@ namespace ClassLibrary
             else { return true; }
         }
         
+        //place order
         public void PlaceOrder(OrderClass order)
         {           
                 reduceStock(order.pizzas);

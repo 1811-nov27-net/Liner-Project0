@@ -9,6 +9,7 @@ namespace ClassLibrary
         public string size;                 //size of the pizza
         public decimal price { get; set; }   //total price of this pizza
 
+        //constructor; determines pizza size and price
         public PizzaClass(string size)
         {
             if (size == "small")

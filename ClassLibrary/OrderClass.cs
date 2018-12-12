@@ -16,7 +16,7 @@ namespace ClassLibrary
 
 
 
-        public decimal price { get; set; }                   //total price of the order
+        public decimal price { get; set; }                            //total price of the order
         List<PizzaClass> PizzaList = new List<PizzaClass>();          //list of pizzas in the order
 
         //custom order
@@ -51,8 +51,6 @@ namespace ClassLibrary
             this.location = store.locationID;
             this.orderTime = DateTime.Now;
         }
-
-        //this string describes the order to the user
 
 
     }

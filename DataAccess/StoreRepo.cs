@@ -17,6 +17,7 @@ namespace DataAccess
             Db = db ?? throw new ArgumentNullException(nameof(db));
         }
 
+        //make an order to add to the database
         public void MakeOrder(OrderClass order)
         {
 
@@ -81,6 +82,7 @@ namespace DataAccess
 
         }*/
 
+        //save changes to the database
         public void SaveChanges()
         {
             Db.SaveChanges();
